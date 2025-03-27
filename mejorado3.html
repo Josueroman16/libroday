@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Gato Negro y su Gatita Blanca</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fef6f0; /* Fondo pastel suave */
+            font-family: "Georgia", serif;
+        }
+
+        .book-container {
+            position: relative;
+            width: 320px;
+            height: 420px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .book {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .cover, .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            flex-direction: column;
+            color: #4a235a; /* Morado oscuro */
+        }
+
+        .cover {
+            background: #ffcccb; /* Rosa suave */
+            font-size: 26px;
+            font-weight: bold;
+            transform-origin: left;
+        }
+
+        .page {
+            background: #ffebf2; /* Color pastel */
+            font-size: 16px;
+            transform: rotateY(180deg);
+            transform-origin: left;
+            display: none;
+        }
+
+        .page h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .page p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .page button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container" onclick="openBook()">
+        <div class="book">
+            <div class="cover">Toca para abrir</div>
+
+            <div class="page" id="page1">
+                <h2>El Gato Negro y su Gatita Blanca</h2>
+                <p>Había una vez un Gato Negro que caminaba solo por el mundo, hasta que un día encontró a la Gatita Blanca, la más hermosa y brillante de todas.</p>
+                <p>Ella amaba los libros, los gatos y tenía una dulzura que iluminaba su vida. Desde el primer instante, él supo que jamás querría estar lejos de ella.</p>
+                <button onclick="nextPage(event, 1)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page2">
+                <p>Con el tiempo, su amor creció, envuelto en risas, caricias y susurros nocturnos. Él, queriendo hacer algo especial, creó un rincón mágico solo para ella:</p>
+                <p>Una página donde le pedía que fuera su novia. Y ella, con el corazón latiendo fuerte, dijo que sí.</p>
+                <p>Pero el Gato Negro soñaba aún más grande: quería que su Gatita Blanca fuera su compañera para siempre...</p>
+                <button onclick="prevPage(event, 1)">Regresar</button>
+                <button onclick="nextPage(event, 2)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page3">
+                <h2>Él no solo la ama…</h2>
+                <p>La admira, la respeta, la cuida.</p>
+                <p>Quiere hacerla feliz en cada instante, protegerla de cualquier sombra, construir con ella una vida donde el amor nunca falte.</p>
+                <p>Sueña con despertar a su lado, con ver cómo la luz del amanecer besa su rostro, con llenar su vida de detalles que le recuerden cuánto significa para él.</p>
+                <button onclick="prevPage(event, 2)">Regresar</button>
+                <button onclick="nextPage(event, 3)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page4">
+                <p>Si pudiera, le regalaría el universo. Pero como no puede, se conforma con darle lo más valioso que tiene:</p>
+                <p>Su amor incondicional, su lealtad eterna, su corazón que, desde el día en que la conoció, solo late por ella.</p>
+                <p>Porque la Gatita Blanca no es solo su amor. Es su destino, su hogar, su siempre.</p>
+                <button onclick="prevPage(event, 3)">Regresar</button>
+                <button onclick="nextPage(event, 4)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page5">
+                <h2>Un Amor Inquebrantable</h2>
+                <p>El Gato Negro sabía que su Gatita Blanca era un alma libre, que a veces se alejaba y ponía barreras. Pero eso no hizo más que intensificar su amor por ella.</p>
+                <p>No quería algo pasajero ni superficial. Quería un amor tan serio como el latir de su corazón, un “nosotros” que fuera más fuerte que cualquier miedo.</p>
+                <button onclick="prevPage(event, 4)">Regresar</button>
+                <button onclick="nextPage(event, 5)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page6">
+                <p>Porque para él, el amor verdadero es caminar juntos, sin importar lo que venga, con el corazón abierto.</p>
+                <p>Y aunque ella no siempre lo mostrara, el Gato Negro sabía que su amor por ella era un lazo irrompible.</p>
+                <button onclick="prevPage(event, 5)">Regresar</button>
+                <button onclick="nextPage(event, 6)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page7">
+                <p><strong>La historia narra que los protagonistas Josué y Dayana serán felizmente casados y se amarán demasiado.</strong></p>
+                <button onclick="prevPage(event, 6)">Regresar</button>
+                <button onclick="nextPage(event, 7)">Siguiente</button>
+            </div>
+
+            <div class="page" id="page8">
+                <p>Si Dios no existe es porque nos casaremos y tendremos:</p>
+                <ul>
+                    <li>20 hijos</li>
+                    <li>10 gatos</li>
+                    <li>5 vacas</li>
+                    <li>3 patos</li>
+                </ul>
+                <p><strong>Uwu</strong></p>
+                <button onclick="prevPage(event, 7)">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isOpen = false;
+
+        function openBook() {
+            if (!isOpen) {
+                document.querySelector(".book").style.transform = "rotateY(-180deg)";
+                document.getElementById("page1").style.display = "flex";
+                isOpen = true;
+            }
+        }
+
+        function nextPage(event, currentPage) {
+            event.stopPropagation();
+            document.getElementById(`page${currentPage}`).style.display = "none";
+            document.getElementById(`page${currentPage + 1}`).style.display = "flex";
+        }
+
+        function prevPage(event, currentPage) {
+            event.stopPropagation();
+            document.getElementById(`page${currentPage}`).style.display = "none";
+            document.getElementById(`page${currentPage - 1}`).style.display = "flex";
+        }
+    </script>
+</body>
+</html>
